@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue App</title>
+        <script src="https://unpkg.com/vue"></script>
+        <link href="http://davidtkatz.com/public_css/vue.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <div class="">
+                Count: {{count}}
+            </div>
+            <button class="vue-btn" @click="increment">increment</button>
+        </div>
+        <script>
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 0
+                }, 
+                methods: {
+                    alertTime() {
+                        alert(`The time is ${Date.now().toLocaleString()}`)
+                    },
+                    increment() {
+                        this.count++
+                    }
+                },
+                created() { // Execute before elements rendered on the screen
+                    //this.alertTime()
+                },
+                mounted() { // Execute after elements rendered on the screen
+                    //this.alertTime()
+                },
+                updated() { // Execute everytime when data has been changed
+                    console.log('this.count', this.count)
+                }
+            })
+        </script>
+    </body>
+</html>
